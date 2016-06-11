@@ -44,7 +44,7 @@ function myTweets(){
 				fs.appendFile('log.txt', '__Tweet: ' + tweets[i].text + '\n');				
 				console.log('Created_at: ' +tweets[i].created_at);  			 
 	  			fs.appendFile('log.txt', 'Created_at: ' +tweets[i].created_at + '\n');	
-	  			
+
   			}		
   		}  else {
   			console.log('error detail: ' + error);
@@ -123,3 +123,5 @@ function doWhat() {
 	});
 } // end function doWhat
 random();
+
+//Copyright 2016 - Pinar Tokmak
