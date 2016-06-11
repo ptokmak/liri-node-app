@@ -64,7 +64,7 @@ function movieThis() {
         return;
     } else {
 		body = JSON.parse(body);
-		fs.appendFile('log.txt', "______MOVIE DETAILS_____________________" + '\n');
+		fs.appendFile('log.txt', "_______MOVIE DETAILS_____________________" + '\n');
 		console.log("Title: " + body.Title);
 		fs.appendFile('log.txt', 'Title: ' + body.Title + '\n');
 		console.log("Year: " + body.Year);
@@ -115,7 +115,7 @@ function doWhat() {
 		if (err) {
 			console.log('error detail: ' +err);
 		}
-		fs.appendFile('log.txt', "***************DO WHAT?***************" + '\n')
+		fs.appendFile('log.txt', "_______________DO WHAT???________________" + '\n')
 		splitData = data.split(',');
 		action = splitData[0];
 		value = splitData[1];		
@@ -124,4 +124,4 @@ function doWhat() {
 } // end function doWhat
 random();
 
-//Copyright 2016 - Pinar Tokmak
+
