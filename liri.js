@@ -9,8 +9,7 @@ var fs = require('fs');
 var action = process.argv[2];
 var value = process.argv[3];
 
-
-
+//random function & switch cases
 function random(){
 	switch (action){
 		case 'my-tweets':
@@ -40,11 +39,12 @@ function myTweets(){
   		if (!error) {
   			fs.appendFile('log.txt', "______LAST 20 TWEETS______________________" + '\n');
     	  	for (var i = 0; i < 20; i++) {   
-    	  	fs.appendFile('log.txt', "__________________________________________" + '\n');     	  		  	
-  			console.log(tweets[i].created_at);  			 
-  			fs.appendFile('log.txt', 'Tweet: ' + tweets[i].created_at + '\n');
-			console.log(tweets[i].text);
-			fs.appendFile('log.txt', 'Created_at: ' + tweets[i].text+ '\n');
+
+				console.log('__Tweet: ' +tweets[i].text);			
+				fs.appendFile('log.txt', '__Tweet: ' + tweets[i].text + '\n');				
+				console.log('Created_at: ' +tweets[i].created_at);  			 
+	  			fs.appendFile('log.txt', 'Created_at: ' +tweets[i].created_at + '\n');	
+	  			
   			}		
   		}  else {
   			console.log('error detail: ' + error);
@@ -69,7 +69,7 @@ function movieThis() {
 		fs.appendFile('log.txt', 'Title: ' + body.Title + '\n');
 		console.log("Year: " + body.Year);
 		fs.appendFile('log.txt', 'Year: ' + body.Year + '\n');
-		console.log("IMDB_Rating: " + body.imdbRating);
+		console.log("IMDB Rating: " + body.imdbRating);
 		fs.appendFile('log.txt', 'IMDB Rating: ' + body.imdbRating + '\n');
 		console.log("Country: " + body.Country);
 		fs.appendFile('log.txt', 'Country: ' + body.Country + '\n');
@@ -82,11 +82,9 @@ function movieThis() {
 		console.log("Rotten Tomatoes Rating: " + body.tomatoRating);
 		console.log("Rotten Tomatoes URL: " + body.tomatoURL);
 		fs.appendFile('log.txt', 'Rotten Tomatoes URL: ' + body.tomatoURL + '\n');
-
 	}
 });
 }//end function movieThis
-
 
 
 //function to search Spotify with a song name
