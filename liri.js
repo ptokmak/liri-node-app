@@ -71,3 +71,18 @@ function movieThis() {
 
 
 
+//function to search Spotify with a song name
+function spotifySong() {
+var value = process.argv[3] || "what's my age again";
+spotify.search({ type: 'track', query: value }, function(err, data) {
+    if ( err ) {
+        console.log('error detail: ' + err);
+        return;
+    } else {
+    	console.log('Artist: ' + data.tracks.items[0].artists[0].name)
+        console.log('Song_Name: ' + data.tracks.items[0].name);
+        console.log('Preview_url: ' + data.tracks.items[0].preview_url);
+        console.log('Album: ' + data.tracks.items[0].album.name);
+    }
+ });
+}//end function spotifySong
