@@ -1,11 +1,11 @@
 var keys = require('./keys.js');
+var fs = require('fs');
 
 var request = require ("request");
 var twitter = require('twitter');
 var spotify = require('spotify');
 
-var fs = require('fs');
-
+//adding args 
 var action = process.argv[2];
 var value = process.argv[3];
 
@@ -95,7 +95,7 @@ spotify.search({ type: 'track', query: value }, function(err, data) {
         console.log('error detail: ' + err);
         return;
     } else {
-    	fs.appendFile('log.txt', "______SONG DETAILS____________________" + '\n')
+    	fs.appendFile('log.txt', "______SONG DETAILS____________________" + '\n');
     	console.log('Artist: ' + data.tracks.items[0].artists[0].name);
     	fs.appendFile('log.txt', 'Artist: ' + data.tracks.items[0].artists[0].name + '\n');
         console.log('Song_Name: ' + data.tracks.items[0].name);
@@ -115,13 +115,14 @@ function doWhat() {
 		if (err) {
 			console.log('error detail: ' +err);
 		}
-		fs.appendFile('log.txt', "_______________DO WHAT???________________" + '\n')
+		fs.appendFile('log.txt', "_______________DO WHAT???________________" + '\n');
 		splitData = data.split(',');
 		action = splitData[0];
 		value = splitData[1];		
 		random();
 	});
 } // end function doWhat
+
 random();
 
 
