@@ -9,23 +9,28 @@ var fs = require('fs');
 var action = process.argv[2];
 var value = process.argv[3];
 
-switch (action){
-	case 'my-tweets':
-		myTweets();
-	break;
 
-	case 'spotify-this-song':
-		spotifySong();
-	break;
 
-	case 'movie-this':
-		movieThis();
-	break;
+function random(){
+	switch (action){
+		case 'my-tweets':
+			myTweets();
+		break;
 
-	case 'do-what-it-says':
-		doWhat();
-	break;
-}//end switch
+		case 'spotify-this-song':
+			spotifySong();
+		break;
+
+		case 'movie-this':
+			movieThis();
+		break;
+
+		case 'do-what-it-says':
+			doWhat();
+		break;
+	}//end switch
+}//end function random
+
 
 //function to show 20 tweets
 function myTweets(){
@@ -66,7 +71,7 @@ function movieThis() {
 		console.log("Rotten Tomatoes URL: " + body.tomatoURL);
 
 	}
-})
+});
 }//end function movieThis
 
 
@@ -86,3 +91,18 @@ spotify.search({ type: 'track', query: value }, function(err, data) {
     }
  });
 }//end function spotifySong
+
+
+//function for doWhat
+function doWhat() {
+	fs.readFile('./random.txt', "utf8", function(err, data){
+		if (err) {
+			console.log('error detail: ' +err);
+		}
+		splitData = data.split(',');
+		action = splitData[0];
+		value = splitData[1];		
+		random();
+	});
+} // end function doWhat
+random();
