@@ -27,3 +27,21 @@ switch (action){
 	break;
 }//end switch
 
+//function to show 20 tweets
+function myTweets(){
+	var client = new twitter(keys.twitterKeys);
+	var params = {screen_name: 'pinariuss'};
+	client.get('statuses/user_timeline', params, function(error, tweets, response){
+  		if (!error) {
+    	  	for (var i = 0; i < 20; i++) {
+  			console.log(tweets[i].created_at);
+  			 console.log(tweets[i].text);
+  			}		
+  		}  else {
+  			console.log('error detail: ' + error);
+  		}    	
+  		
+	});
+}//end function myTweets
+
+
